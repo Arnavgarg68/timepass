@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import './carousel.css'
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
-import img1 from './images/img1.png'
-import img2 from './images/img2.png'
-import img3 from './images/img3.png'
-import img4 from './images/img4.png'
+// import img1 from './images/img1.png'
+// import img2 from './images/img2.png'
+// import img3 from './images/img3.png'
+// import img4 from './images/img4.png'
 
 export default function Carousel({ data }) {
   const [imgnumber, setImgnumber] = useState(0);
   // document.addEventListener('keydown')
-  const imagess = [img1,img2,img3,img4];
+  // const imagess = [img1,img2,img3,img4];
   const handlenext = () => {
     const value = imgnumber == data.length - 1 ? 0 : imgnumber + 1;
 
@@ -25,7 +25,7 @@ export default function Carousel({ data }) {
       {
         data.map((e, i) => (
           <div className="carousel-main-inside">
-            <img src={imagess[i]} alt={e.alt} className='slide-image' style={{ "transform": `scale(${i === imgnumber ? 1 : 0.9})`, "zIndex": i === imgnumber ? 2 : -1 }} key={i} />
+            <img src={e.src} alt={e.alt} className='slide-image' style={{ "transform": `scale(${i === imgnumber ? 1 : 0.9})`,"":i===imgnumber?"block":"none", "zIndex": i === imgnumber ? 2 : -1 }} key={i} />
             <div className="carousel-about" style={{display:i===imgnumber?'block':"none"}}>
               {e.line}
             </div>
